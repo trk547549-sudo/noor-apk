@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#087f5b">
+<title>نور | القرآن والأذكار</title>
+
+<style>
+:root{
+  --bg:#f4f8f6;
+  --card:#fff;
+  --text:#17352d;
+  --muted:#71827c;
+  --primary:#087f5b;
+  --primary2:#0b9b70;
+  --soft:#e7f5ef;
+  --border:#dce9e3;
+  --shadow:0 10px 30px rgba(0,0,0,.07);
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Tahoma,Arial,sans-serif;
+  padding-bottom:86px;
+}
+
+body.dark{
+  --bg:#0e1714;
+  --card:#17231f;
+  --text:#f0f7f4;
+  --muted:#a9bab4;
+  --soft:#20352e;
+  --border:#2d423a;
+  --shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+button,input{
+  font-family:inherit;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+.top{
+  background:linear-gradient(135deg,#087f5b,#064b3a);
+  color:white;
+  padding:25px 18px 30px;
+  border-radius:0 0 30px 30px;
+}
+
+.top-inner{
+  max-width:900px;
+  margin:auto;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-icon{
+  width:55px;
+  height:55px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:18px;
+  background:rgba(255,255,255,.16);
+  font-size:30px;
+}
+
+.logo h1{
+  margin:0;
+  font-size:29px;
+}
+
+.logo p{
+  margin:4px 0 0;
+  opacity:.8;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:16px;
+}
+
+.section{
+  animation:fade .2s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.hidden{display:none!important}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:18px;
+  margin:14px 0;
+  box-shadow:var(--shadow);
+}
+
+.card h2{
+  margin-top:0;
+}
+
+.hero{
+  text-align:center;
+  padding:25px 18px;
+}
+
+.hero-symbol{
+  font-size:48px;
+}
+
+.hero h2{
+  margin:8px 0;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.action{
+  min-height:100px;
+  border-radius:20px;
+  padding:16px;
+  background:var(--soft);
+  color:var(--text);
+  text-align:right;
+  border:1px solid var(--border);
+}
+
+.action .icon{
+  font-size:30px;
+  display:block;
+  margin-bottom:8px;
+}
+
+.action b{
+  font-size:16px;
+}
+
+.search{
+  width:100%;
+  padding:15px 17px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  background:var(--bg);
+  color:var(--text);
+  outline:none;
+  font-size:16px;
+}
+
+.surah{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:16px 5px;
+  border-bottom:1px solid var(--border);
+  cursor:pointer;
+}
+
+.surah:last-child{
+  border-bottom:0;
+}
+
+.surah-name{
+  font-size:19px;
+  font-weight:bold;
+}
+
+.badge{
+  background:var(--primary);
+  color:white;
+  padding:7px 11px;
+  border-radius:30px;
+  font-size:12px;
+  white-space:nowrap;
+}
+
+.back{
+  background:var(--soft);
+  color:var(--text);
+  padding:11px 15px;
+  border-radius:13px;
+  margin-bottom:12px;
+}
+
+.ayah{
+  padding:19px 8px;
+  border-bottom:1px solid var(--border);
+  line-height:2.2;
+  font-size:22px;
+}
+
+.ayah:last-child{
+  border-bottom:0;
+}
+
+.ayah-num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:var(--primary);
+  color:white;
+  font-size:13px;
+  margin-left:8px;
+}
+
+.ayah-tools{
+  display:flex;
+  gap:7px;
+  margin-top:10px;
+}
+
+.small-btn{
+  padding:8px 11px;
+  border-radius:10px;
+  background:var(--soft);
+  color:var(--text);
+}
+
+.dhikr{
+  padding:19px;
+  border-radius:18px;
+  background:var(--soft);
+  margin:12px 0;
+  line-height:2;
+  font-size:20px;
+}
+
+.dhikr-tools{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+}
+
+.primary{
+  background:var(--primary);
+  color:white;
+  padding:14px 18px;
+  border-radius:14px;
+  font-weight:bold;
+}
+
+.secondary{
+  background:var(--soft);
+  color:var(--text);
+  padding:14px 18px;
+  border-radius:14px;
+}
+
+.full{
+  width:100%;
+}
+
+.counter{
+  text-align:center;
+}
+
+.count{
+  font-size:75px;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+.tasbeeh-btn{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#087f5b,#0bad7b);
+  color:white;
+  font-size:24px;
+  font-weight:bold;
+  box-shadow:0 15px 35px rgba(8,127,91,.25);
+}
+
+.counter-row{
+  display:flex;
+  gap:10px;
+  margin-top:18px;
+}
+
+.counter-row button{
+  flex:1;
+}
+
+.favorite{
+  border:1px solid var(--border);
+  padding:14px;
+  border-radius:15px;
+  margin:10px 0;
+  line-height:1.9;
+}
+
+.setting{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.setting:last-child{
+  border-bottom:0;
+}
+
+.switch{
+  background:var(--primary);
+  color:white;
+  padding:10px 13px;
+  border-radius:12px;
+}
+
+.empty{
+  text-align:center;
+  padding:30px 10px;
+  color:var(--muted);
+}
+
+.bottom{
+  position:fixed;
+  z-index:50;
+  bottom:0;
+  left:0;
+  right:0;
+  height:76px;
+  display:flex;
+  justify-content:center;
+  background:var(--card);
+  border-top:1px solid var(--border);
+  box-shadow:0 -8px 25px rgba(0,0,0,.08);
+}
+
+.bottom-inner{
+  width:100%;
+  max-width:900px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+}
+
+.nav-btn{
+  background:transparent;
+  color:var(--muted);
+  font-size:11px;
+  padding:8px 2px;
+}
+
+.nav-btn span{
+  display:block;
+  font-size:22px;
+  margin-bottom:3px;
+}
+
+.nav-btn.active{
+  color:var(--primary);
+  font-weight:bold;
+}
+
+@media(max-width:480px){
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .ayah{
+    font-size:20px;
+  }
+
+  .dhikr{
+    font-size:18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="top">
+  <div class="top-inner">
+    <div class="logo">
+      <div class="logo-icon">🌙</div>
+      <div>
+        <h1>نور</h1>
+        <p>القرآن الكريم والأذكار</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- الرئيسية -->
+<section id="home" class="section">
+
+  <div class="card hero">
+    <div class="hero-symbol">📖</div>
+    <h2>السلام عليكم ورحمة الله وبركاته</h2>
+    <p class="muted">
+      أهلاً بك في نور — مساحة بسيطة للقرآن والأذكار والتسبيح.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>الوصول السريع</h2>
+
+    <div class="grid">
+      <button class="action" onclick="showPage('quran')">
+        <span class="icon">📖</span>
+        <b>القرآن الكريم</b>
+      </button>
+
+      <button class="action" onclick="showPage('adhkar')">
+        <span class="icon">🤲</span>
+        <b>الأذكار</b>
+      </button>
+
+      <button class="action" onclick="showPage('tasbeeh')">
+        <span class="icon">📿</span>
+        <b>التسبيح</b>
+      </button>
+
+      <button class="action" onclick="showPage('favorites')">
+        <span class="icon">❤️</span>
+        <b>المفضلة</b>
+      </button>
+    </div>
+  </div>
+
+  <div class="card hero">
+    <h3>✨ آية اليوم</h3>
+    <div class="ayah">
+      ﴿ فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾
+    </div>
+  </div>
+
+</section>
+
+<!-- القرآن -->
+<section id="quran" class="section hidden">
+
+  <div class="card">
+    <button class="back" onclick="showPage('home')">⬅️ الرئيسية</button>
+
+    <h2>📖 القرآن الكريم</h2>
+
+    <input
+      id="search"
+      class="search"
+      type="search"
+      placeholder="🔎 ابحث عن سورة أو آية..."
+      oninput="searchQuran()"
+    >
+
+    <div id="surahList"></div>
+  </div>
+
+</section>
+
+<!-- القارئ -->
+<section id="reader" class="section hidden">
+
+  <div class="card">
+
+    <button class="back" onclick="showPage('quran')">
+      ⬅️ العودة إلى السور
+    </button>
+
+    <h2 id="surahTitle" style="text-align:center"></h2>
+
+    <div id="ayahList"></div>
+
+  </div>
+
+</section>
+
+<!-- الأذكار -->
+<section id="adhkar" class="section hidden">
+
+  <div class="card">
+
+    <button class="back" onclick="showPage('home')">⬅️ الرئيسية</button>
+
+    <h2>🤲 الأذكار</h2>
+
+    <div class="grid">
+
+      <button class="action" onclick="loadDhikr('morning')">
+        <span class="icon">☀️</span>
+        <b>أذكار الصباح</b>
+      </button>
+
+      <button class="action" onclick="loadDhikr('evening')">
+        <span class="icon">🌙</span>
+        <b>أذكار المساء</b>
+      </button>
+
+      <button class="action" onclick="loadDhikr('sleep')">
+        <span class="icon">🛏️</span>
+        <b>أذكار النوم</b>
+      </button>
+
+    </div>
+
+  </div>
+
+  <div id="dhikrBox"></div>
+
+</section>
+
+<!-- التسبيح -->
+<section id="tasbeeh" class="section hidden">
+
+  <div class="card counter">
+
+    <button class="back" onclick="showPage('home')">
+      ⬅️ الرئيسية
+    </button>
+
+    <h2>📿 عداد التسبيح</h2>
+
+    <div id="count" class="count">0</div>
+
+    <button class="tasbeeh-btn" onclick="increase()">
+      سبحان الله
+    </button>
+
+    <div class="counter-row">
+      <button class="secondary" onclick="minus()">➖</button>
+      <button class="secondary" onclick="resetCount()">🔄 تصفير</button>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- المفضلة -->
+<section id="favorites" class="section hidden">
+
+  <div class="card">
+
+    <button class="back" onclick="showPage('home')">
+      ⬅️ الرئيسية
+    </button>
+
+    <h2>❤️ المفضلة</h2>
+
+    <div id="favoritesList"></div>
+
+  </div>
+
+</section>
+
+<!-- الإعدادات -->
+<section id="settings" class="section hidden">
+
+  <div class="card">
+
+    <button class="back" onclick="showPage('home')">
+      ⬅️ الرئيسية
+    </button>
+
+    <h2>⚙️ الإعدادات</h2>
+
+    <div class="setting">
+      <div>
+        <b>الوضع الليلي</b>
+        <div class="muted">تغيير مظهر التطبيق</div>
+      </div>
+
+      <button class="switch" onclick="toggleDark()">🌙 تغيير</button>
+    </div>
+
+    <div class="setting">
+      <div>
+        <b>مسح البيانات</b>
+        <div class="muted">حذف العداد والمفضلة</div>
+      </div>
+
+      <button class="switch" onclick="clearData()">🗑️ مسح</button>
+    </div>
+
+  </div>
+
+  <div class="card hero">
+
+    <div style="font-size:55px">👨‍💻</div>
+
+    <h2>نور</h2>
+
+    <p>القرآن الكريم والأذكار</p>
+
+    <hr>
+
+    <h3>المطور</h3>
+
+    <p><b>علاء العمراني</b></p>
+
+    <p class="muted">ala alamrany</p>
+
+    <p class="muted">© 2026</p>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- شريط التنقل -->
+<nav class="bottom">
+
+  <div class="bottom-inner">
+
+    <button class="nav-btn active" data-page="home" onclick="showPage('home')">
+      <span>🏠</span>
+      الرئيسية
+    </button>
+
+    <button class="nav-btn" data-page="quran" onclick="showPage('quran')">
+      <span>📖</span>
+      القرآن
+    </button>
+
+    <button class="nav-btn" data-page="adhkar" onclick="showPage('adhkar')">
+      <span>🤲</span>
+      الأذكار
+    </button>
+
+    <button class="nav-btn" data-page="tasbeeh" onclick="showPage('tasbeeh')">
+      <span>📿</span>
+      التسبيح
+    </button>
+
+    <button class="nav-btn" data-page="settings" onclick="showPage('settings')">
+      <span>⚙️</span>
+      الإعدادات
+    </button>
+
+  </div>
+
+</nav>
+
+<script>
+
+const surahs = [
+
+{
+name:"الفاتحة",
+ayahs:[
+"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+"الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+"الرَّحْمَٰنِ الرَّحِيمِ",
+"مَالِكِ يَوْمِ الدِّينِ",
+"إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+"اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+"صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ"
+]
+},
+
+{
+name:"الإخلاص",
+ayahs:[
+"قُلْ هُوَ اللَّهُ أَحَدٌ",
+"اللَّهُ الصَّمَدُ",
+"لَمْ يَلِدْ وَلَمْ يُولَدْ",
+"وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ"
+]
+},
+
+{
+name:"الفلق",
+ayahs:[
+"قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ",
+"مِنْ شَرِّ مَا خَلَقَ",
+"وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ",
+"وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ",
+"وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ"
+]
+},
+
+{
+name:"الناس",
+ayahs:[
+"قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
+"مَلِكِ النَّاسِ",
+"إِلَٰهِ النَّاسِ",
+"مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ",
+"الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ",
+"مِنَ الْجِنَّةِ وَالنَّاسِ"
+]
+},
+
+{
+name:"العصر",
+ayahs:[
+"وَالْعَصْرِ",
+"إِنَّ الْإِنسَانَ لَفِي خُسْرٍ",
+"إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ"
+]
+},
+
+{
+name:"الكوثر",
+ayahs:[
+"إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ",
+"فَصَلِّ لِرَبِّكَ وَانْحَرْ",
+"إِنَّ شَانِئَكَ هُوَ الْأَبْتَرُ"
+]
+},
+
+{
+name:"الكافرون",
+ayahs:[
+"قُلْ يَا أَيُّهَا الْكَافِرُونَ",
+"لَا أَعْبُدُ مَا تَعْبُدُونَ",
+"وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ",
+"وَلَا أَنَا عَابِدٌ مَّا عَبَدتُّمْ",
+"وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ",
+"لَكُمْ دِينُكُمْ وَلِيَ دِينِ"
+]
+}
+
+];
+
+const adhkar = {
+
+morning:[
+"أصبحنا وأصبح الملك لله، والحمد لله.",
+"رضيت بالله ربًا، وبالإسلام دينًا، وبمحمد ﷺ نبيًا.",
+"سبحان الله وبحمده.",
+"لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير."
+],
+
+evening:[
+"أمسينا وأمسى الملك لله، والحمد لله.",
+"رضيت بالله ربًا، وبالإسلام دينًا، وبمحمد ﷺ نبيًا.",
+"سبحان الله وبحمده.",
+"لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير."
+],
+
+sleep:[
+"باسمك اللهم أموت وأحيا.",
+"سبحان الله.",
+"الحمد لله.",
+"الله أكبر."
+]
+
+};
+
+let count = Number(localStorage.getItem("tasbeeh_count") || 0);
+
+function showPage(id){
+
+  document.querySelectorAll(".section").forEach(section=>{
+    section.classList.add("hidden");
+  });
+
+  const page=document.getElementById(id);
+
+  if(page){
+    page.classList.remove("hidden");
+  }
+
+  document.querySelectorAll(".nav-btn").forEach(btn=>{
+    btn.classList.toggle(
+      "active",
+      btn.dataset.page===id
+    );
+  });
+
+  window.scrollTo(0,0);
+
+  if(id==="quran"){
+    renderSurahs(surahs);
+  }
+
+  if(id==="favorites"){
+    loadFavorites();
+  }
+}
+
+function renderSurahs(list){
+
+  const box=document.getElementById("surahList");
+
+  box.innerHTML="";
+
+  if(!list.length){
+    box.innerHTML='<div class="empty">لا توجد نتائج 🔎</div>';
+    return;
+  }
+
+  list.forEach((s,i)=>{
+
+    const div=document.createElement("div");
+
+    div.className="surah";
+
+    div.innerHTML=`
+      <div>
+        <div class="surah-name">${s.name}</div>
+        <div class="muted">${s.ayahs.length} آيات</div>
+      </div>
+      <span class="badge">قراءة</span>
+    `;
+
+    div.onclick=()=>openSurah(
+      surahs.indexOf(s)
+    );
+
+    box.appendChild(div);
+
+  });
+}
+
+function searchQuran(){
+
+  const q=document
+    .getElementById("search")
+    .value
+    .trim();
+
+  if(!q){
+    renderSurahs(surahs);
+    return;
+  }
+
+  const result=surahs.filter(s=>{
+
+    if(s.name.includes(q)) return true;
+
+    return s.ayahs.some(a=>a.includes(q));
+
+  });
+
+  renderSurahs(result);
+}
+
+function openSurah(index){
+
+  const s=surahs[index];
+
+  document.getElementById("surahTitle").textContent=
+    "سورة "+s.name;
+
+  const box=document.getElementById("ayahList");
+
+  box.innerHTML="";
+
+  s.ayahs.forEach((ayah,index)=>{
+
+    const div=document.createElement("div");
+
+    div.className="ayah";
+
+    div.innerHTML=`
+      <div>
+        <span class="ayah-num">${index+1}</span>
+        ${ayah}
+      </div>
+
+      <div class="ayah-tools">
+        <button
+          class="small-btn"
+          onclick="copyText(${JSON.stringify(ayah)})">
+          📋 نسخ
+        </button>
+
+        <button
+          class="small-btn"
+          onclick="favorite(${JSON.stringify(ayah)})">
+          ❤️ حفظ
+        </button>
+      </div>
+    `;
+
+    box.appendChild(div);
+
+  });
+
+  showPage("reader");
+}
+
+function loadDhikr(type){
+
+  const box=document.getElementById("dhikrBox");
+
+  box.innerHTML="";
+
+  adhkar[type].forEach((text,index)=>{
+
+    const div=document.createElement("div");
+
+    div.className="card dhikr";
+
+    div.innerHTML=`
+      <b>${index+1}</b> — ${text}
+
+      <div class="dhikr-tools">
+
+        <button
+          class="small-btn"
+          onclick="copyText(${JSON.stringify(text)})">
+          📋 نسخ
+        </button>
+
+        <button
+          class="small-btn"
+          onclick="favorite(${JSON.stringify(text)})">
+          ❤️ حفظ
+        </button>
+
+      </div>
+    `;
+
+    box.appendChild(div);
+
+  });
+
+}
+
+function favorite(text){
+
+  let list=JSON.parse(
+    localStorage.getItem("favorites") || "[]"
+  );
+
+  if(!list.includes(text)){
+    list.push(text);
+    localStorage.setItem(
+      "favorites",
+      JSON.stringify(list)
+    );
+    alert("تمت الإضافة إلى المفضلة ❤️");
+  }else{
+    alert("هذا العنصر موجود بالفعل في المفضلة.");
+  }
+
+}
+
+function loadFavorites(){
+
+  const box=document.getElementById("favoritesList");
+
+  const list=JSON.parse(
+    localStorage.getItem("favorites") || "[]"
+  );
+
+  box.innerHTML="";
+
+  if(!list.length){
+
+    box.innerHTML=`
+      <div class="empty">
+        لا توجد عناصر محفوظة حتى الآن ❤️
+      </div>
+    `;
+
+    return;
+  }
+
+  list.forEach((text,index)=>{
+
+    const div=document.createElement("div");
+
+    div.className="favorite";
+
+    div.innerHTML=`
+      <div>${text}</div>
+
+      <div class="dhikr-tools">
+
+        <button
+          class="small-btn"
+          onclick="copyText(${JSON.stringify(text)})">
+          📋 نسخ
+        </button>
+
+        <button
+          class="small-btn"
+          onclick="removeFavorite(${index})">
+          🗑️ حذف
+        </button>
+
+      </div>
+    `;
+
+    box.appendChild(div);
+
+  });
+
+}
+
+function removeFavorite(index){
+
+  let list=JSON.parse(
+    localStorage.getItem("favorites") || "[]"
+  );
+
+  list.splice(index,1);
+
+  localStorage.setItem(
+    "favorites",
+    JSON.stringify(list)
+  );
+
+  loadFavorites();
+
+}
+
+function copyText(text){
+
+  if(navigator.clipboard){
+
+    navigator.clipboard
+      .writeText(text)
+      .then(()=>alert("تم النسخ 📋"))
+      .catch(()=>fallbackCopy(text));
+
+  }else{
+
+    fallbackCopy(text);
+
+  }
+
+}
+
+function fallbackCopy(text){
+
+  const area=document.createElement("textarea");
+
+  area.value=text;
+
+  document.body.appendChild(area);
+
+  area.select();
+
+  document.execCommand("copy");
+
+  area.remove();
+
+  alert("تم النسخ 📋");
+
+}
+
+function updateCount(){
+
+  document.getElementById("count").textContent=count;
+
+  localStorage.setItem(
+    "tasbeeh_count",
+    count
+  );
+
+}
+
+function increase(){
+
+  count++;
+
+  updateCount();
+
+}
+
+function minus(){
+
+  if(count>0){
+    count--;
+    updateCount();
+  }
+
+}
+
+function resetCount(){
+
+  count=0;
+
+  updateCount();
+
+}
+
+function toggleDark(){
+
+  document.body.classList.toggle("dark");
+
+  localStorage.setItem(
+    "dark_mode",
+    document.body.classList.contains("dark")
+  );
+
+}
+
+function clearData(){
+
+  if(confirm("هل تريد مسح البيانات المحفوظة؟")){
+
+    localStorage.clear();
+
+    count=0;
+
+    updateCount();
+
+    loadFavorites();
+
+    alert("تم مسح البيانات.");
+
+  }
+
+}
+
+if(localStorage.getItem("dark_mode")==="true"){
+  document.body.classList.add("dark");
+}
+
+updateCount();
+
+renderSurahs(surahs);
+
+</script>
+
+</body>
+</html>
